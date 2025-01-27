@@ -1,40 +1,41 @@
 import React from 'react';
+import MedalInput from './MedalInput';
 
 const Form = ({ handleAddBtn, newMedalList, handleOnChange, handleUpdateBtn }) => {
-
-    
     return (
         <form onSubmit={handleAddBtn}>
-            <label>
+            <MedalInput
+                type={'text'}
+                name={'country'}
+                newMedalList={newMedalList}
+                handleOnChange={handleOnChange}
+            >
                 국가명
-                <input type="text" name="country" value={newMedalList.country} onChange={handleOnChange} required />
-            </label>
-            <label>
-                국가명
-                <input type="number" name="gold" value={newMedalList.gold} onChange={handleOnChange} required min={0} />
-            </label>
-            <label>
-                국가명
-                <input
-                    type="number"
-                    name="silver"
-                    value={newMedalList.silver}
-                    onChange={handleOnChange}
-                    required
-                    min={0}
-                />
-            </label>
-            <label>
-                국가명
-                <input
-                    type="number"
-                    name="bronze"
-                    value={newMedalList.bronze}
-                    onChange={handleOnChange}
-                    required
-                    min={0}
-                />
-            </label>
+            </MedalInput>
+            <MedalInput
+                type={'number'}
+                name={'gold'}
+                newMedalList={newMedalList}
+                handleOnChange={handleOnChange}
+            >
+                금메달
+            </MedalInput>
+            <MedalInput
+                type={'number'}
+                name={'silver'}
+                newMedalList={newMedalList}
+                handleOnChange={handleOnChange}
+            >
+                은메달
+            </MedalInput>
+            <MedalInput
+                type={'number'}
+                name={'bronze'}
+                newMedalList={newMedalList}
+                handleOnChange={handleOnChange}
+            >
+                동메달
+            </MedalInput>
             <button type="submit">Add</button>
             <button onClick={handleUpdateBtn}>Update</button>
         </form>
